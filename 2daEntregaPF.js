@@ -1,28 +1,43 @@
-class Producto{
-    constructor(id, nombre,cantidad,precio){
-
-        this.nombre = nombre;
-        this.cantidad = cantidad;
-        this.precio = parseFloat(precio);
-    }
-}
-
-const producto1 = new Producto(1,"coca 2.25", 2,300)
-const producto2 = new Producto(2,"hamburguesa", 3,180)
-const producto3 = new Producto(3,"arroz", 1, 90)
-
-const producto = [producto1, producto2, producto3]
 
 /*
-producto.forEach(producto =>  {
-    console.table(producto)
-} 
-    )
-*/
-
-const precioTotal = () => {
-    const suma = producto.reduce((suma, p)=>suma + (p.precio * p.cantidad), 0);
-    return `Total: ${suma}`
+class Operacion{
+    constructor (ingresarNumero1,ingresarNumero2){
+        this.ingresar = ingresarNumero1
+        this.ingresar = ingresarNumero2
+    }
 }
-console.table(producto)
-console.table(precioTotal());
+let Operacion = []
+if(localStorage.getItem('storageOperacion')) {
+    Operacion = JSON.parse(localStorage.getItem('storageOperacion'))
+} else {
+    localStorage.setItem('storageOperacion', JSON.stringify(Operacion))
+}
+
+const form = document.getElementById('idForm')
+const botonOperacion = document.getElementById('idBotonOperacion')
+const divOperacion = document.getElementsById('divOperacion')
+*/
+function sumar(){
+    var x = parseInt(document.getElementById('idNumero1').value);
+    var y = parseInt(document.getElementById('idNumero2').value);
+    document.getElementById('idBotonOperacion').innerHTML = x+y;
+
+}
+
+function restar(){
+    var x = parseInt(document.getElementById('idNumero1').value);
+    var y = parseInt(document.getElementById('idNumero2').value);
+    document.getElementById('idBotonOperacion').innerHTML = x-y;
+}
+
+function multiplicar(){
+    var x = parseInt(document.getElementById('idNumero1').value);
+    var y = parseInt(document.getElementById('idNumero2').value);
+    document.getElementById('idBotonOperacion').innerHTML = x*y;
+}
+function dividir(){
+    var x = parseInt(document.getElementById('idNumero1').value);
+    var y = parseInt(document.getElementById('idNumero2').value);
+    document.getElementById('idBotonOperacion').innerHTML = x/y;
+}
+
